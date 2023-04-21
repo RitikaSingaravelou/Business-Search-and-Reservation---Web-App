@@ -1,0 +1,48 @@
+<html>
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  </head>
+<body>
+    <div [hidden]="resempty()">
+       
+     <h2> List of your reservations</h2>
+        <table class="table" style="background-color: white; border-radius: 5px; border-color: white;" id="myrestab" width="70%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Business Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Email</th>
+                <th> </th>
+            </tr>
+           </thead>
+           <tbody>
+           <tr  *ngFor="let res of reslist.slice(0,reslist.length); let i=index" >
+            <td>{{ i+1 }}</td>
+            <td>{{res.BusinessName}}</td>
+            <td>{{ res.Date }}</td>
+            <td>{{ res.Time }}</td>
+            <td>{{res.Email}}</td>
+            <td> <button type="button" class="btn btn-light" (click)="removeres(i)"><span class="bi bi-trash"></span></button> </td>
+          </tr>
+            </tbody>
+        </table>
+     
+
+</div>
+    
+    <div [hidden]="!(resempty())">
+<p id="norespara" class="align-items-center justify-content-center"> No reservations to show</p>
+
+    </div>
+</body>
+
+</html>
+
+
+
+
